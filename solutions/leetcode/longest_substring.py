@@ -6,14 +6,14 @@ def length_of_longest_substring(s: str) -> int:
     for index, c in enumerate(s):
         if c not in visited:
             visited[c] = index
-            count = count + 1
+            count += 1
         else:
             longest = longest if longest > count else count
             if visited[c] >= start_idx:
                 start_idx = visited[c] + 1
                 count = index - start_idx + 1
             else:
-                count = count + 1
+                count += 1
             visited[c] = index
     return longest if longest > count else count
 
